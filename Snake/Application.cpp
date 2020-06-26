@@ -1,4 +1,5 @@
 #include "Application.h"
+#include "SinglyLinkedList.h"
 
 
 
@@ -8,6 +9,16 @@ Application::Application(int pWindowWidth, int pWindowHeight, std::string pAppNa
 	, m_screenHeight(pWindowHeight)
 	, m_desiredUpdateTime(sf::seconds(1.0f / 60.0f))
 {
+	Node* tFirstElem = new Node;
+	tFirstElem->data = 5;
+	SinglyLinkedList list(tFirstElem);
+	list.PushBack(10);
+	list.PushFront(100);
+	list.Length();
+	
+	
+
+
 }
 
 
