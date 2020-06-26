@@ -1,4 +1,6 @@
 #pragma once
+
+
 template<class T>
 struct Node
 {
@@ -20,7 +22,9 @@ public:
 
 private:
 	Node<T>* m_head; // Head (first node)
-	Node<T>* m_tail; // Tail (the last node)
+	Node<T>* m_end; // End (the last node)
 
 };
+
+
 

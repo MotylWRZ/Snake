@@ -9,7 +9,7 @@ SinglyLinkedList<T>::SinglyLinkedList(T pFirstNodeData)
 	newNodePtr->data = pFirstNodeData;
 	newNodePtr->next = nullptr; //There is only one element so far so set the pointer to the next node as a nullptr
 	m_head = newNodePtr; //Set the first node as the list head		
-	m_tail = newNodePtr; //Set also the first node as the list tail (there is only one element so it is a tail and the head)
+	m_end = newNodePtr; //Set also the first node as the list tail (there is only one element so it is a tail and the head)
 }
 
 template<class T>
@@ -31,9 +31,9 @@ void SinglyLinkedList<T>::PushBack(T pData)
 {
 	Node<T>* newNodePtr = new Node<T>; // Create a new node
 	newNodePtr->data = pData; //Assign data to the node
-	m_tail->next = newNodePtr; // Set a next node as a new node
-	m_tail = newNodePtr; // Set a new node as a tail as it is the last element now
-	m_tail->next = nullptr; // Set the next node ptr as a nullptr as it is not pointing to anything
+	m_end->next = newNodePtr; // Set a next node as a new node
+	m_end = newNodePtr; // Set a new node as a tail as it is the last element now
+	m_end->next = nullptr; // Set the next node ptr as a nullptr as it is not pointing to anything->next = nullptr; // Set the next node ptr as a nullptr as it is not pointing to anything
 }
 
 template<class T>

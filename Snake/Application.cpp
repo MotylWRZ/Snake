@@ -11,8 +11,8 @@ Application::Application(int pWindowWidth, int pWindowHeight, std::string pAppNa
 	, m_desiredUpdateTime(sf::seconds(1.0f / 60.0f))
 {
 	//Example of Singly-Linked List storing data of type int
-	SinglyLinkedList<int> list(0.1332f);
-	list.PushFront(10.0123f);
+	SinglyLinkedList<int> list(1);
+	list.PushFront(10);
 
 }
 
