@@ -3,21 +3,16 @@
 
 
 
+
 Application::Application(int pWindowWidth, int pWindowHeight, std::string pAppName)
 	:m_window(sf::VideoMode(pWindowWidth, pWindowHeight), pAppName)
 	, m_screenWidth(pWindowWidth)
 	, m_screenHeight(pWindowHeight)
 	, m_desiredUpdateTime(sf::seconds(1.0f / 60.0f))
 {
-	Node* tFirstElem = new Node;
-	tFirstElem->data = 5;
-	SinglyLinkedList list(tFirstElem);
-	list.PushBack(10);
-	list.PushFront(100);
-	list.Length();
-	
-	
-
+	//Example of Singly-Linked List storing data of type int
+	SinglyLinkedList<int> list(0.1332f);
+	list.PushFront(10.0123f);
 
 }
 

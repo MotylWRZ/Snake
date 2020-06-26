@@ -2,39 +2,44 @@
 
 
 
-SinglyLinkedList::SinglyLinkedList(Node* pFirstNode)
-	: m_head(pFirstNode)
-	, m_tail(pFirstNode)
+template<typename T>
+SinglyLinkedList<T>::SinglyLinkedList(T pFirstNodeData)
 {
-	m_head->next = nullptr;
-	m_tail->next = nullptr;
+	Node<T>* newNodePtr = new Node<T>; // Create a new node (first node in the list)
+	newNodePtr->data = pFirstNodeData;
+	newNodePtr->next = nullptr; //There is only one element so far so set the pointer to the next node as a nullptr
+	m_head = newNodePtr; //Set the first node as the list head		
+	m_tail = newNodePtr; //Set also the first node as the list tail (there is only one element so it is a tail and the head)
 }
 
-
-SinglyLinkedList::~SinglyLinkedList()
+template<class T>
+SinglyLinkedList<T>::~SinglyLinkedList()
 {
 }
 
-void SinglyLinkedList::PushFront(int pData)
+template<class T>
+void SinglyLinkedList<T>::PushFront(T pData)
 {
-	Node* newNodePtr = new Node; // Create a new node
+	Node<T>* newNodePtr = new Node<T>; // Create a new node
 	newNodePtr->data = pData; //Assign data to the node
 	newNodePtr->next = m_head; // set the next node of a ned node as a head node. Now it is NewNode->Head
 	m_head = newNodePtr; // Set a new node as a head as it is a first element now
 }
 
-void SinglyLinkedList::PushBack(int pData)
+template<class T>
+void SinglyLinkedList<T>::PushBack(T pData)
 {
-	Node* newNodePtr = new Node; // Create a new node
+	Node<T>* newNodePtr = new Node<T>; // Create a new node
 	newNodePtr->data = pData; //Assign data to the node
 	m_tail->next = newNodePtr; // Set a next node as a new node
 	m_tail = newNodePtr; // Set a new node as a tail as it is the last element now
 	m_tail->next = nullptr; // Set the next node ptr as a nullptr as it is not pointing to anything
 }
 
-int SinglyLinkedList::Length()
+template<class T>
+int SinglyLinkedList<T>::Length()
 {
-	Node* currentNodePtr = m_head; // current node ptr
+	Node<T>* currentNodePtr = m_head; // current node ptr
 	int count = 0;
 	while (currentNodePtr != nullptr)
 	{
@@ -43,3 +48,10 @@ int SinglyLinkedList::Length()
 	}
 	return count;
 }
+
+//Explicit Instantiation
+//Only types used here in <> brackets will be available to used in this linked list
+template class SinglyLinkedList<int>;
+template class SinglyLinkedList<float>;
+template class SinglyLinkedList<char>;
+// Here only int, float and char can be used. More types can be added here (including custom Classes)
