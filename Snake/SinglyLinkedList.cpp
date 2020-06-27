@@ -3,6 +3,14 @@
 
 
 template<typename T>
+SinglyLinkedList<T>::SinglyLinkedList()
+	:m_head(nullptr)
+	,m_end(nullptr)
+{
+
+}
+
+template<typename T>
 SinglyLinkedList<T>::SinglyLinkedList(T pFirstNodeData)
 {
 	Node<T>* newNodePtr = new Node<T>; // Create a new node (first node in the list)

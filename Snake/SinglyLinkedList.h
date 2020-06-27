@@ -13,7 +13,8 @@ template<class T>
 class SinglyLinkedList
 {
 public:
-	SinglyLinkedList<T>(T pFirstNodeData);
+	SinglyLinkedList<T>(); //Default constructor. The created list will be empty
+	SinglyLinkedList<T>(T pFirstNodeData); // Use this constructor to immidiately create a head node
 	virtual ~SinglyLinkedList<T>();
 
 	void PushFront(T pData); // push a new node at the front of the list
