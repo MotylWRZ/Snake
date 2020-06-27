@@ -49,6 +49,29 @@ int SinglyLinkedList<T>::Length()
 	return count;
 }
 
+template<class T>
+void SinglyLinkedList<T>::PopBack()
+{
+	Node<T>* tCurrentNodePtr = m_head;
+	while (tCurrentNodePtr->next != m_end)
+	{
+		tCurrentNodePtr = tCurrentNodePtr->next;
+	}
+	if (tCurrentNodePtr->next == m_end)
+	{
+		delete m_end;
+		m_end = tCurrentNodePtr;
+		m_end->next = nullptr;
+	}
+	
+}
+
+template<class T>
+void SinglyLinkedList<T>::PopFront()
+{
+
+}
+
 //Explicit Instantiation
 //Only types used here in <> brackets will be available to used in this linked list
 template class SinglyLinkedList<int>;

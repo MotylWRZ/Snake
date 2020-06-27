@@ -19,6 +19,8 @@ public:
 	void PushFront(T pData); // push a new node at the front of the list
 	void PushBack(T pData); // push a new node at the end of the list
 	int Length(); // get the lenght of the linked list
+	void PopBack(); // Delete the last element of the list
+	void PopFront(); // Delete firt element of the list
 
 	//Accesors/Mutators
 	Node<T>* GetHeadPtr() { return m_head; }; // Return a pointer to the head node

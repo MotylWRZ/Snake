@@ -13,8 +13,13 @@ Application::Application(int pWindowWidth, int pWindowHeight, std::string pAppNa
 {
 	//Example of Singly-Linked List storing data of type int
 	SinglyLinkedList<char> list(1);
-	list.PushFront(10);
-
+	list.PushFront(11);
+	list.PushFront(12);
+	list.PushFront(12);
+	int bla = list.Length();
+	list.PopBack();
+	bla = list.Length();
+	bla = 0;
 
 
 }
