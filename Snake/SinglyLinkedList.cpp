@@ -55,13 +55,13 @@ void SinglyLinkedList<T>::PopBack()
 	Node<T>* tCurrentNodePtr = m_head;
 	while (tCurrentNodePtr->next != m_end)
 	{
-		tCurrentNodePtr = tCurrentNodePtr->next;
+		tCurrentNodePtr = tCurrentNodePtr->next; // Traverse the linked list in order top find the last elem
 	}
-	if (tCurrentNodePtr->next == m_end)
+	if (tCurrentNodePtr->next == m_end) 
 	{
-		delete m_end;
-		m_end = tCurrentNodePtr;
-		m_end->next = nullptr;
+		delete m_end; //Delete the last element by using a delete keyword
+		m_end = tCurrentNodePtr; // point to the new last node (the node before the previous last node)
+		m_end->next = nullptr; // Set the pointer to the next node as a nullptr
 	}
 	
 }
@@ -69,7 +69,9 @@ void SinglyLinkedList<T>::PopBack()
 template<class T>
 void SinglyLinkedList<T>::PopFront()
 {
-
+	Node<T>* tNewHeadPtr = m_head->next; // Temorary pointer pointing at the next node from the head
+	delete m_head; // Deallocate the memory used by the head node
+	m_head = tNewHeadPtr; // Point to the new head node
 }
 
 //Explicit Instantiation

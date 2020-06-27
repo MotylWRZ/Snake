@@ -17,7 +17,7 @@ Application::Application(int pWindowWidth, int pWindowHeight, std::string pAppNa
 	list.PushFront(12);
 	list.PushFront(12);
 	int bla = list.Length();
-	list.PopBack();
+	list.PopFront();
 	bla = list.Length();
 	bla = 0;
 
