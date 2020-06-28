@@ -1,12 +1,16 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <string>
+#include "Snake.h"
 class Application
 {
 public:
 	Application(int pWindowWidth, int pWindowHeight, std::string pAppName);
 	virtual ~Application();
 
+
+	void HandleEvent(const sf::Event& pEvent);
+	void HandleInput(sf::Keyboard::Key pKey, bool pPressed);
 	void Update(sf::Time pDeltaTime);
 	void Render();
 	void Run();
@@ -19,6 +23,6 @@ private:
 	sf::Time m_desiredUpdateTime;
 	
 
-
+	Snake m_snake;
 };
 

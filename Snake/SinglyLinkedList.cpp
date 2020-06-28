@@ -1,5 +1,5 @@
 #include "SinglyLinkedList.h"
-
+#include "SFML/Graphics.hpp"
 
 
 template<typename T>
@@ -87,4 +87,5 @@ void SinglyLinkedList<T>::PopFront()
 template class SinglyLinkedList<int>;
 template class SinglyLinkedList<float>;
 template class SinglyLinkedList<char>;
+template class SinglyLinkedList <sf::RectangleShape>;
 // Here only int, float and char can be used. More types can be added here (including custom Classes)
