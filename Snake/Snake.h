@@ -19,15 +19,13 @@ public:
 	Snake();
 	virtual ~Snake();
 
-	void Move();
-	void HandleInput(sf::Keyboard::Key pKey, bool pPressed);
 	void ChangeMoveDirection(EMoveDirection pNewDirection);
+	void HandleInput(sf::Keyboard::Key pKey, bool pPressed);
+	void Move();
+	
+	void Update(float pDeltaTime);
 	void Render(sf::RenderWindow& pWindow);
 
-	
-	
-	
-	
 private:
 	
 	int m_health;
@@ -38,7 +36,7 @@ private:
 	sf::Color m_headColor;
 	sf::Color m_bodyColor;
 
-	SinglyLinkedList<sf::RectangleShape> m_snakeBody;
+	SinglyLinkedList<SnakeBodyElem> m_snakeBody;
 	EMoveDirection m_eCurrMoveDirection;
 	sf::Vector2f m_movement;
 };

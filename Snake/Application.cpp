@@ -62,7 +62,7 @@ void Application::HandleInput(sf::Keyboard::Key pKey, bool pPressed)
 
 void Application::Update(sf::Time pDeltaTime)
 {
-	m_snake.Move();
+	m_snake.Update(pDeltaTime.asSeconds());
 }
 
 void Application::Render()
