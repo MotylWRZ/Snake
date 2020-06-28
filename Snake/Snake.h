@@ -8,9 +8,9 @@
 enum EMoveDirection
 {
 	E_MOVE_UP,
+	E_MOVE_RIGHT,
 	E_MOVE_DOWN,
-	E_MOVE_LEFT,
-	E_MOVE_RIGHT
+	E_MOVE_LEFT
 };
 
 class Snake
