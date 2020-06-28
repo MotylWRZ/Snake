@@ -8,14 +8,20 @@ Snake::Snake()
 	, m_foodColected(0)
 	, m_eCurrMoveDirection(E_MOVE_RIGHT)
 	, m_movement(m_speed, 0.0f)
+	, m_snakeBodyElemSize(sf::Vector2f(20.0f, 20.0f))
+	, m_position(sf::Vector2f(100.0f, 100.0f))
+	, m_headColor(sf::Color::Green)
+	, m_bodyColor(sf::Color::White)
 {
 
 	sf::Vector2f tPos(100.0f, 100.0f);
-	sf::RectangleShape tShape = sf::RectangleShape(sf::Vector2f(20.0f, 20.0f));
+	//SnakeBodyElem tElem(m_snakeBodyElemSize, m_position, m_bodyColor);
+	sf::RectangleShape tElem(m_snakeBodyElemSize);
+	tElem.setPosition(tPos);
 	for (int i = 0; i < 10; i++)
 	{
 		
-		m_snakeBody.PushFront(tShape);
+		m_snakeBody.PushFront(tElem);
 		m_snakeBody.GetHeadPtr()->data.setPosition(tPos);
 		tPos.x += 21.0f;
 	}
@@ -59,9 +65,10 @@ void Snake::Move()
 		sf::Vector2f tPos = tCurrElem->data.getPosition();
 		//tCurrElem->next->data.setPosition(tCurrElem->data.getPosition());
 		m_snakeBody.PopBack();
-		sf::RectangleShape shape(sf::Vector2f(20.0f, 20.0f));
-		shape.setPosition(tPos + m_movement);
-		m_snakeBody.PushFront(shape);
+		//SnakeBodyElem tBodyElem(m_snakeBodyElemSize, sf::Vector2f(tPos + m_movement), m_bodyColor);
+		sf::RectangleShape tBodyElem(m_snakeBodyElemSize);
+		tBodyElem.setPosition(sf::Vector2f(tPos + m_movement));
+		m_snakeBody.PushFront(tBodyElem);
 	
 		
 		

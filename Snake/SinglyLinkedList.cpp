@@ -1,4 +1,5 @@
 #include "SinglyLinkedList.h"
+#include "SnakeBodyElem.h"
 #include "SFML/Graphics.hpp"
 
 
@@ -97,4 +98,5 @@ template class SinglyLinkedList<int>;
 template class SinglyLinkedList<float>;
 template class SinglyLinkedList<char>;
 template class SinglyLinkedList <sf::RectangleShape>;
+/*template class SinglyLinkedList<SnakeBodyElem>;*/ // Cosuing an error
 // Here only int, float and char can be used. More types can be added here (including custom Classes)

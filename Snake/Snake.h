@@ -1,6 +1,7 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 #include "SinglyLinkedList.h"
+#include "SnakeBodyElem.h"
 #include <vector>
 
 
@@ -32,6 +33,11 @@ private:
 	int m_health;
 	float m_speed;
 	int m_foodColected;
+	sf::Vector2f m_snakeBodyElemSize;
+	sf::Vector2f m_position;
+	sf::Color m_headColor;
+	sf::Color m_bodyColor;
+
 	SinglyLinkedList<sf::RectangleShape> m_snakeBody;
 	EMoveDirection m_eCurrMoveDirection;
 	sf::Vector2f m_movement;

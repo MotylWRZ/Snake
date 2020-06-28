@@ -124,11 +124,13 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SinglyLinkedList.cpp" />
     <ClCompile Include="Snake.cpp" />
+    <ClCompile Include="SnakeBodyElem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="SinglyLinkedList.h" />
     <ClInclude Include="Snake.h" />
+    <ClInclude Include="SnakeBodyElem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
