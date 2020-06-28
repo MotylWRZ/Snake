@@ -32,6 +32,10 @@ void SinglyLinkedList<T>::PushFront(T pData)
 	newNodePtr->data = pData; //Assign data to the node
 	newNodePtr->next = m_head; // set the next node of a ned node as a head node. Now it is NewNode->Head
 	m_head = newNodePtr; // Set a new node as a head as it is a first element now
+	if (this->Length() < 2)
+	{
+		m_end = m_head;
+	}
 }
 
 template<class T>
@@ -42,6 +46,11 @@ void SinglyLinkedList<T>::PushBack(T pData)
 	m_end->next = newNodePtr; // Set a next node as a new node
 	m_end = newNodePtr; // Set a new node as a tail as it is the last element now
 	m_end->next = nullptr; // Set the next node ptr as a nullptr as it is not pointing to anything->next = nullptr; // Set the next node ptr as a nullptr as it is not pointing to anything
+
+	if (this->Length() < 2)
+	{
+		m_head = m_end;
+	}
 }
 
 template<class T>

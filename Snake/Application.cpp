@@ -10,7 +10,7 @@ Application::Application(int pWindowWidth, int pWindowHeight, std::string pAppNa
 	:m_window(sf::VideoMode(pWindowWidth, pWindowHeight), pAppName)
 	, m_screenWidth(pWindowWidth)
 	, m_screenHeight(pWindowHeight)
-	, m_desiredUpdateTime(sf::seconds(1.0f / 60.0f))
+	, m_desiredUpdateTime(sf::seconds(1.0f / 10.0f))
 {
 	//Example of Singly-Linked List storing data of type int
 	/*SinglyLinkedList<char> list;

@@ -3,6 +3,7 @@
 #include "SinglyLinkedList.h"
 #include <vector>
 
+
 enum EMoveDirection
 {
 	E_MOVE_UP,

@@ -4,7 +4,7 @@
 
 Snake::Snake()
 	:m_health(100)
-	, m_speed(1.0f)
+	, m_speed(20.0f)
 	, m_foodColected(0)
 	, m_eCurrMoveDirection(E_MOVE_RIGHT)
 	, m_movement(m_speed, 0.0f)
@@ -29,7 +29,7 @@ Snake::~Snake()
 
 void Snake::Move()
 {
-	if (m_snakeBody.Length() > 0)
+	/*if (m_snakeBody.Length() > 0)
 	{
 		auto tCurrElem = m_snakeBody.GetHeadPtr();
 		while (tCurrElem != nullptr)
@@ -37,7 +37,36 @@ void Snake::Move()
 			tCurrElem->data.move(m_movement);
 			tCurrElem = tCurrElem->next;
 		}
-	}
+	}*/
+	if (m_snakeBody.Length() > 0)
+{
+		/*sf::Vector2f tPos = m_snakeBody.GetEndPtr()->data.getPosition();
+		sf::Vector2f tTurnPos = m_snakeBody.GetHeadPtr()->data.getPosition();
+		sf::RectangleShape shape(sf::Vector2f(20.0f, 20.0f));
+		if (tPos == tTurnPos)
+		{
+			shape.setPosition(tPos + m_movement);
+			m_snakeBody.PushBack(shape);
+			m_snakeBody.PopBack();
+		}
+		else
+		{
+			shape.setPosition(tPos + -m_movement);
+			m_snakeBody.PushFront(shape);
+			m_snakeBody.PopBack();
+		}*/
+		auto tCurrElem = m_snakeBody.GetHeadPtr();
+		sf::Vector2f tPos = tCurrElem->data.getPosition();
+		//tCurrElem->next->data.setPosition(tCurrElem->data.getPosition());
+		m_snakeBody.PopBack();
+		sf::RectangleShape shape(sf::Vector2f(20.0f, 20.0f));
+		shape.setPosition(tPos + m_movement);
+		m_snakeBody.PushFront(shape);
+	
+		
+		
+}
+	
 }
 
 void Snake::Render(sf::RenderWindow& pWindow)
