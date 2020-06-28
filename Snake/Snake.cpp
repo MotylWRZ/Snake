@@ -108,6 +108,14 @@ void Snake::Move()
 	
 }
 
+void Snake::AddBodyElem()
+{
+	auto tCurrElem = m_snakeBody.GetEndPtr();
+	sf::Vector2f tPos = tCurrElem->data.GetPosition();
+	SnakeBodyElem tBodyElem(m_snakeBodyElemSize, sf::Vector2f(tPos + m_movement), m_bodyColor);
+	m_snakeBody.PushBack(tBodyElem);
+}
+
 
 void Snake::Update(float pDeltaTime)
 {
