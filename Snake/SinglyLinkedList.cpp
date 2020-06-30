@@ -99,4 +99,4 @@ template class SinglyLinkedList<float>;
 template class SinglyLinkedList<char>;
 template class SinglyLinkedList <sf::RectangleShape>;
 template class SinglyLinkedList<SnakeBodyElem>; 
-// Here only int, float and char can be used. More types can be added here (including custom Classes)
+// Here only int, float, char, sf::RectangleShape and SnakeBodyElem can be used. More types can be added here (including custom Classes)

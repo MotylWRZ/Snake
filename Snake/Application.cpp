@@ -12,17 +12,6 @@ Application::Application(int pWindowWidth, int pWindowHeight, std::string pAppNa
 	, m_screenHeight(pWindowHeight)
 	, m_desiredUpdateTime(sf::seconds(1.0f / 10.0f))
 {
-	//Example of Singly-Linked List storing data of type int
-	/*SinglyLinkedList<char> list;
-	list.PushFront(11);
-	list.PushFront(12);
-	list.PushFront(12);
-	int bla = list.Length();
-	list.PopFront();
-	bla = list.Length();
-	bla = 0;*/
-	
-
 }
 
 
