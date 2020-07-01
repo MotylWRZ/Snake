@@ -77,7 +77,7 @@ void Snake::HandleInput(sf::Keyboard::Key pKey, bool pPressed)
 	{
 		tCurrentDirection--;
 		if (tCurrentDirection < 0)
-			tCurrentDirection = 4;
+			tCurrentDirection = 3;
 
 		ChangeMoveDirection(EMoveDirection(tCurrentDirection));
 		break;
