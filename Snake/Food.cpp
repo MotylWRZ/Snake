@@ -26,6 +26,7 @@ void Food::Reinitialise(sf::Vector2f pPos, float pRadious, sf::Color pColor, int
 
 void Food::ReinitialiseRandom()
 {
+	// Set new, random position
 	float tPosX = GetRandomFloatInRange(10.0f, 700.0f);
 	float tPosY = GetRandomFloatInRange(10.0f, 700.0f);
 	m_foodShape.setPosition(sf::Vector2f(tPosX, tPosY));

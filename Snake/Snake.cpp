@@ -136,12 +136,14 @@ void Snake::CheckSnakeSnakeCollision()
 
 void Snake::CheckSnakeFoodCollision(Food& pFood)
 {
+	//Check wheter the snake collides with food object
 	if (m_snakeBody.GetHeadPtr()->data.rGetShape().getGlobalBounds().
 		intersects(pFood.rGetShape().getGlobalBounds()))
 	{
-		AddBodyElem();
-		m_foodColected += pFood.GetScoreValue();
+		AddBodyElem(); // Add Body element to the snake
+		m_foodColected += pFood.GetScoreValue(); //Increase the current score
 		
+		//Reinitialise the food at random position
 		pFood.ReinitialiseRandom();
 	}
 }
