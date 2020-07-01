@@ -23,13 +23,14 @@ public:
 	void HandleInput(sf::Keyboard::Key pKey, bool pPressed);
 	void Move();
 	void AddBodyElem();
+	void CheckCollision();
 	
 	
 	void Update(float pDeltaTime);
 	void Render(sf::RenderWindow& pWindow);
 
 private:
-	
+	bool m_bIsAlive;
 	int m_health;
 	float m_speed;
 	int m_foodColected;

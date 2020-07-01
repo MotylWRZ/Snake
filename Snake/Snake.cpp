@@ -12,6 +12,7 @@ Snake::Snake()
 	, m_position(sf::Vector2f(100.0f, 100.0f))
 	, m_headColor(sf::Color::Green)
 	, m_bodyColor(sf::Color::Blue)
+	, m_bIsAlive(true)
 {
 	
 	sf::Vector2f tPos(100.0f, 100.0f);
@@ -116,10 +117,30 @@ void Snake::AddBodyElem()
 	m_snakeBody.PushBack(tBodyElem);
 }
 
+void Snake::CheckCollision()
+{
+	auto tCurrElem = m_snakeBody.GetHeadPtr()->next;
+	while (tCurrElem->next != nullptr)
+	{
+		
+		if (tCurrElem->data.GetPosition() == m_snakeBody.GetHeadPtr()->data.GetPosition())
+		{
+			this->m_bIsAlive = false;
+			break;
+		}
+		else
+		tCurrElem = tCurrElem->next;
+	}
+}
+
 
 void Snake::Update(float pDeltaTime)
 {
+	if (!m_bIsAlive)
+		return;
+	
 	this->Move();
+	this->CheckCollision();
 }
 
 void Snake::Render(sf::RenderWindow& pWindow)
