@@ -121,6 +121,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Food.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SinglyLinkedList.cpp" />
     <ClCompile Include="Snake.cpp" />
@@ -128,6 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
+    <ClInclude Include="Food.h" />
     <ClInclude Include="SinglyLinkedList.h" />
     <ClInclude Include="Snake.h" />
     <ClInclude Include="SnakeBodyElem.h" />

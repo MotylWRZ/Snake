@@ -12,6 +12,8 @@ Application::Application(int pWindowWidth, int pWindowHeight, std::string pAppNa
 	, m_screenHeight(pWindowHeight)
 	, m_desiredUpdateTime(sf::seconds(1.0f / 10.0f))
 {
+	m_food = Food(sf::Vector2f(100, 100), 20.0f, sf::Color::Green, 10);
+
 }
 
 
@@ -52,11 +54,13 @@ void Application::HandleInput(sf::Keyboard::Key pKey, bool pPressed)
 void Application::Update(sf::Time pDeltaTime)
 {
 	m_snake.Update(pDeltaTime.asSeconds());
+	m_snake.HandleCollision(m_food);
 }
 
 void Application::Render()
 {
 	m_window.clear();
+	m_food.Render(m_window);
 	m_snake.Render(m_window);
 	m_window.display();
 }

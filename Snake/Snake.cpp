@@ -1,4 +1,5 @@
 #include "Snake.h"
+#include "Food.h"
 
 
 
@@ -117,7 +118,7 @@ void Snake::AddBodyElem()
 	m_snakeBody.PushBack(tBodyElem);
 }
 
-void Snake::CheckCollision()
+void Snake::CheckSnakeSnakeCollision()
 {
 	auto tCurrElem = m_snakeBody.GetHeadPtr()->next;
 	while (tCurrElem->next != nullptr)
@@ -133,6 +134,25 @@ void Snake::CheckCollision()
 	}
 }
 
+void Snake::CheckSnakeFoodCollision(Food& pFood)
+{
+	if (m_snakeBody.GetHeadPtr()->data.rGetShape().getGlobalBounds().
+		intersects(pFood.rGetShape().getGlobalBounds()))
+	{
+		AddBodyElem();
+		m_foodColected += pFood.GetScoreValue();
+		
+		pFood.ReinitialiseRandom();
+	}
+}
+
+void Snake::HandleCollision(Food& pFood)
+{
+	CheckSnakeSnakeCollision();
+	CheckSnakeFoodCollision(pFood);
+}
+ 
+
 
 void Snake::Update(float pDeltaTime)
 {
@@ -140,7 +160,6 @@ void Snake::Update(float pDeltaTime)
 		return;
 	
 	this->Move();
-	this->CheckCollision();
 }
 
 void Snake::Render(sf::RenderWindow& pWindow)

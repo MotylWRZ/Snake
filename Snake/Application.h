@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include "Snake.h"
+#include "Food.h"
 class Application
 {
 public:
@@ -24,5 +25,6 @@ private:
 	
 
 	Snake m_snake;
+	Food m_food;
 };
 

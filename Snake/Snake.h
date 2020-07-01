@@ -2,7 +2,10 @@
 #include "SFML/Graphics.hpp"
 #include "SinglyLinkedList.h"
 #include "SnakeBodyElem.h"
+#include "Food.h"
+
 #include <vector>
+
 
 
 enum EMoveDirection
@@ -21,26 +24,29 @@ public:
 
 	void ChangeMoveDirection(EMoveDirection pNewDirection);
 	void HandleInput(sf::Keyboard::Key pKey, bool pPressed);
-	void Move();
-	void AddBodyElem();
-	void CheckCollision();
-	
-	
 	void Update(float pDeltaTime);
 	void Render(sf::RenderWindow& pWindow);
+	void HandleCollision(Food& pFood);
 
 private:
-	bool m_bIsAlive;
-	int m_health;
-	float m_speed;
-	int m_foodColected;
-	sf::Vector2f m_snakeBodyElemSize;
-	sf::Vector2f m_position;
-	sf::Color m_headColor;
-	sf::Color m_bodyColor;
+	void CheckSnakeSnakeCollision();
+	void CheckSnakeFoodCollision(Food& pFood);
+	void AddBodyElem();
+	void Move();
+	
+
+private:
+	bool	m_bIsAlive;
+	int		m_health;
+	float	m_speed;
+	int		m_foodColected;
+	sf::Vector2f	m_snakeBodyElemSize;
+	sf::Vector2f	m_position;
+	sf::Color		m_headColor;
+	sf::Color		m_bodyColor;
 
 	SinglyLinkedList<SnakeBodyElem> m_snakeBody;
-	EMoveDirection m_eCurrMoveDirection;
-	sf::Vector2f m_movement;
+	EMoveDirection					m_eCurrMoveDirection;
+	sf::Vector2f					m_movement;
 };
 
