@@ -103,9 +103,11 @@ void Snake::Move()
 		auto tCurrElem = m_snakeBody.GetHeadPtr();
 		sf::Vector2f tPos = tCurrElem->data.GetPosition();
 		m_snakeBody.PopBack(); // Delete the last node
-		// Create a new element at updated position
-		SnakeBodyElem tBodyElem(m_snakeBodyElemSize, sf::Vector2f(tPos + m_movement), m_bodyColor); 
+		// Create a new element at updated position. Set color as a head color as this will be a new front node (head)
+		SnakeBodyElem tBodyElem(m_snakeBodyElemSize, sf::Vector2f(tPos + m_movement), m_headColor); 
 		m_snakeBody.PushFront(tBodyElem); // Add new element to the fronmt of the list
+		// Get the next node (body element) and set the color of it to the body color
+		m_snakeBody.GetHeadPtr()->next->data.rGetShape().setFillColor(m_bodyColor);
 	}
 	
 }
@@ -162,8 +164,8 @@ void Snake::Update(float pDeltaTime)
 		return;
 	
 	this->Move();
-	this->m_snakeBody.GetHeadPtr()->data.rGetShape().setFillColor(m_headColor);
-	this->m_snakeBody.GetHeadPtr()->next->data.rGetShape().setFillColor(m_bodyColor);
+	/*this->m_snakeBody.GetHeadPtr()->data.rGetShape().setFillColor(m_headColor);
+	this->m_snakeBody.GetHeadPtr()->next->data.rGetShape().setFillColor(m_bodyColor);*/
 }
 
 void Snake::Render(sf::RenderWindow& pWindow)
