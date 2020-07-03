@@ -16,6 +16,9 @@ UITextElement::UITextElement(std::string pText, int pFontSize, sf::Color pTextCo
 	m_text.setCharacterSize(m_fontSize);
 	m_text.setFillColor(m_textColor);
 	m_text.setPosition(m_position);
+
+	m_font.loadFromFile("../Fonts/SegoeMarker.ttf");
+	m_text.setFont(m_font);
 }
 
 UITextElement::~UITextElement()
