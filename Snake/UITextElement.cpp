@@ -21,3 +21,8 @@ UITextElement::UITextElement(std::string pText, int pFontSize, sf::Color pTextCo
 UITextElement::~UITextElement()
 {
 }
+
+void UITextElement::Render(sf::RenderWindow& pWindow)
+{
+	pWindow.draw(m_text);
+}
