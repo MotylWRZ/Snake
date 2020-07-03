@@ -3,6 +3,7 @@
 #include <string>
 #include "Snake.h"
 #include "Food.h"
+#include "UITextElement.h"
 class Application
 {
 public:
@@ -26,5 +27,6 @@ private:
 
 	Snake m_snake;
 	Food m_food;
+	
 };
 

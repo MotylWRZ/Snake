@@ -2,6 +2,7 @@
 
 
 
+
 UITextElement::UITextElement()
 {
 }
@@ -12,6 +13,7 @@ UITextElement::UITextElement(std::string pText, int pFontSize, sf::Color pTextCo
 	, m_textColor(pTextColor)
 	, m_position(pPosition)
 {
+	
 	m_text.setString(m_textString);
 	m_text.setCharacterSize(m_fontSize);
 	m_text.setFillColor(m_textColor);
