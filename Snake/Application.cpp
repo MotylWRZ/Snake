@@ -18,12 +18,11 @@ Application::Application(int pWindowWidth, int pWindowHeight, std::string pAppNa
 
 Application::~Application()
 {
-	
 }
 
 void Application::Initialise()
 {
-	m_gameWorld = new GameWorld();
+	m_gameWorld = new GameWorld(m_window);
 }
 
 

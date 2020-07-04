@@ -7,7 +7,7 @@
 class GameWorld
 {
 public:
-	GameWorld();
+	GameWorld(sf::RenderWindow& pParentWindow);
 	~GameWorld();
 
 	void HandleInput(sf::Keyboard::Key pKey, bool pPressed);
@@ -15,7 +15,10 @@ public:
 	void Render(sf::RenderWindow& pWindow);
 
 private:
-	sf::RenderWindow* m_parentWindow;
+	sf::RectangleShape m_worldBounds;
+	float m_worldWidth;
+	float m_worldHeight;
+	int m_borderThickness;
 
 	Snake m_snake;
 	Food m_food;
