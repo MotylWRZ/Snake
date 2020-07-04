@@ -1,16 +1,22 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <string>
-#include "Snake.h"
-#include "Food.h"
-#include "UITextElement.h"
+#include "GameWorld.h"
 class Application
 {
+
 public:
+
+	enum class AppState
+	{
+		MAIN_MENU,
+		IN_GAME,
+	}m_appState;
+
 	Application(int pWindowWidth, int pWindowHeight, std::string pAppName);
 	virtual ~Application();
 
-
+	void Initialise();
 	void HandleEvent(const sf::Event& pEvent);
 	void HandleInput(sf::Keyboard::Key pKey, bool pPressed);
 	void Update(sf::Time pDeltaTime);
@@ -24,9 +30,7 @@ private:
 	std::size_t m_screenHeight;
 	sf::Time m_desiredUpdateTime;
 	
+	GameWorld* m_gameWorld;
 
-	Snake m_snake;
-	Food m_food;
-	UITextElement* m_score;
 };
 

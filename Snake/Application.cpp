@@ -13,16 +13,17 @@ Application::Application(int pWindowWidth, int pWindowHeight, std::string pAppNa
 	, m_screenHeight(pWindowHeight)
 	, m_desiredUpdateTime(sf::seconds(1.0f / 10.0f))
 {
-	
-	m_food = Food(sf::Vector2f(100, 100), 20.0f, sf::Color::Green, 10);
-	m_score = new UITextElement("ScoreTest", 30, sf::Color::White, sf::Vector2f(100.0f, 100.0f));
-
 }
 
 
 Application::~Application()
 {
-	delete m_score;
+	
+}
+
+void Application::Initialise()
+{
+	m_gameWorld = new GameWorld();
 }
 
 
@@ -51,22 +52,19 @@ void Application::HandleEvent(const sf::Event& pEvent)
 
 void Application::HandleInput(sf::Keyboard::Key pKey, bool pPressed)
 {
-	m_snake.HandleInput(pKey, pPressed);
+	m_gameWorld->HandleInput(pKey, pPressed);
 }
 
 
 void Application::Update(sf::Time pDeltaTime)
 {
-	m_snake.Update(pDeltaTime.asSeconds());
-	m_snake.HandleCollision(m_food);
+	m_gameWorld->Update(pDeltaTime);
 }
 
 void Application::Render()
 {
 	m_window.clear();
-	m_food.Render(m_window);
-	m_snake.Render(m_window);
-	m_score->Render(m_window);
+	m_gameWorld->Render(m_window);
 	m_window.display();
 }
 

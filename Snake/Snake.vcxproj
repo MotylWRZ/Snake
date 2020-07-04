@@ -122,6 +122,7 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Food.cpp" />
+    <ClCompile Include="GameWorld.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SinglyLinkedList.cpp" />
     <ClCompile Include="Snake.cpp" />
@@ -131,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="Food.h" />
+    <ClInclude Include="GameWorld.h" />
     <ClInclude Include="SinglyLinkedList.h" />
     <ClInclude Include="Snake.h" />
     <ClInclude Include="SnakeBodyElem.h" />

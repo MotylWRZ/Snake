@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Screens">
+      <UniqueIdentifier>{3f4be98e-9549-420e-b572-29c8e1e5513d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Screens">
+      <UniqueIdentifier>{bd83d9da-b94a-4fdb-b446-99e0c9fd4d69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{4741b4b4-ced9-4e4a-9ac9-31d5bc80ca6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{8bbc4179-3274-4e02-afbf-05530228d7b5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -33,8 +45,11 @@
     <ClCompile Include="Food.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GameWorld.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
     <ClCompile Include="UITextElement.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -53,8 +68,11 @@
     <ClInclude Include="Food.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameWorld.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
     <ClInclude Include="UITextElement.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

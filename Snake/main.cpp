@@ -4,6 +4,7 @@
 int main()
 {
 	Application Game(1240, 720, "SnakeGame");
+	Game.Initialise();
 	Game.Run();
 	
 	system("PAUSE");
