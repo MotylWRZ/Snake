@@ -149,19 +149,26 @@ void Snake::CheckSnakeFoodCollision(Food& pFood)
 		
 		if (m_worldCollisonActive)
 		{
-			//Reinitialise the food at random position
+			//Reinitialise the food at random position using world bounds
 			pFood.ReinitialiseRandom(m_worldBounds.left, m_worldBounds.width, m_worldBounds.top, m_worldBounds.height);
 		}
 		else
 		{
+			//Reinitialise the food at random position using default values
 			pFood.ReinitialiseRandom(100.0f, 700.0f, 100.0f, 700.0f);
 		}
-		
 	}
 }
 
 void Snake::CheckSnakeWorldCollision(sf::FloatRect pWorldBounds)
 {
+	if (m_snakeBody.GetHeadPtr()->data.GetPosition().x > pWorldBounds.width ||
+		m_snakeBody.GetHeadPtr()->data.GetPosition().x < pWorldBounds.left ||
+		m_snakeBody.GetHeadPtr()->data.GetPosition().y > pWorldBounds.height ||
+		m_snakeBody.GetHeadPtr()->data.GetPosition().y < pWorldBounds.top)
+	{
+		this->m_bIsAlive = false;
+	}
 }
 
 void Snake::HandleCollision(Food& pFood, bool pWorldCollisionActive, sf::FloatRect pWorldBounds)

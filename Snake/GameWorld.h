@@ -17,6 +17,7 @@ public:
 
 private:
 	sf::RectangleShape m_worldBounds;
+	sf::FloatRect m_playableArea;
 	float m_worldWidth;
 	float m_worldHeight;
 	int m_borderThickness;
