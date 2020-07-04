@@ -19,6 +19,7 @@ public:
 	inline void SetPosition(sf::Vector2f pNewPos) { m_position = pNewPos; m_text.setPosition(m_position); };
 	inline void SetFillColor(sf::Color pNewColor) { m_textColor = pNewColor; m_text.setFillColor(m_textColor); };
 	inline void SetFontSize(int pNewSize) { m_fontSize = pNewSize; m_text.setCharacterSize(m_fontSize); };
+	inline void SetString(std::string pString) { m_textString = pString; m_text.setString(m_textString); };
 
 private:
 	sf::Text  m_text;

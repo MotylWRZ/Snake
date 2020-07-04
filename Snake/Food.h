@@ -8,7 +8,7 @@ public:
 	virtual ~Food();
 
 	void Reinitialise(sf::Vector2f pPos, float pRadious, sf::Color pColor, int pScoreValue);
-	void ReinitialiseRandom();
+	void ReinitialiseRandom(float tPosXMin, float tPosXMax, float tPosYMin, float tPosYMax);
 	void Render(sf::RenderWindow& pWindow);
 
 

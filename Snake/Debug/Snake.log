@@ -1,4 +1,6 @@
-﻿  GameWorld.cpp
+﻿  Application.cpp
+  Food.cpp
+  GameWorld.cpp
 d:\game development\myprojectsc++\games\snake_v3\snake\gameworld.cpp(9): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
@@ -23,4 +25,7 @@ d:\game development\myprojectsc++\games\snake_v3\snake\gameworld.cpp(14): warnin
           [
               T=unsigned int
           ]
+  Snake.cpp
+  main.cpp
+  Generating Code...
   Snake.vcxproj -> D:\Game Development\MyProjectsC++\Games\Snake_V3\Debug\Snake.exe

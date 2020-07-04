@@ -14,7 +14,7 @@ GameWorld::GameWorld(sf::RenderWindow& pParentWindow)
 	m_worldBounds.setPosition(pParentWindow.getSize().x / 2, pParentWindow.getSize().y / 2);
 
 	m_food = Food(sf::Vector2f(100, 100), 20.0f, sf::Color::Green, 10);
-	m_score = new UITextElement("ScoreTest", 30, sf::Color::White, sf::Vector2f(m_worldBounds.getSize().x - 200.0f
+	m_score = new UITextElement("Score", 30, sf::Color::White, sf::Vector2f(m_worldBounds.getSize().x - 200.0f
 																				, 0.0f));
 }
 
@@ -33,6 +33,12 @@ void GameWorld::Update(sf::Time pDeltaTime)
 {
 	m_snake.Update(pDeltaTime.asSeconds());
 	m_snake.HandleCollision(m_food);
+	this->UpdateScore();
+}
+
+void GameWorld::UpdateScore()
+{
+	m_score->SetString("Score " + std::to_string(m_snake.GetFoodCollected()));
 }
 
 void GameWorld::Render(sf::RenderWindow& pWindow)
@@ -41,5 +47,4 @@ void GameWorld::Render(sf::RenderWindow& pWindow)
 	m_food.Render(pWindow);
 	m_snake.Render(pWindow);
 	m_score->Render(pWindow);
-	
 }

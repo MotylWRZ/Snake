@@ -14,6 +14,8 @@ Snake::Snake()
 	, m_headColor(sf::Color::Blue)
 	, m_bodyColor(sf::Color::White)
 	, m_bIsAlive(true)
+	, m_worldCollisonActive(false)
+	, m_worldBounds(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(0.0f, 0.0f))
 {
 	
 	sf::Vector2f tPos(100.0f, 100.0f);
@@ -145,8 +147,16 @@ void Snake::CheckSnakeFoodCollision(Food& pFood)
 		AddBodyElem(); // Add Body element to the snake
 		m_foodColected += pFood.GetScoreValue(); //Increase the current score
 		
-		//Reinitialise the food at random position
-		pFood.ReinitialiseRandom();
+		if (m_worldCollisonActive)
+		{
+			//Reinitialise the food at random position
+			pFood.ReinitialiseRandom(m_worldBounds.left, m_worldBounds.width, m_worldBounds.top, m_worldBounds.height);
+		}
+		else
+		{
+			pFood.ReinitialiseRandom(100.0f, 700.0f, 100.0f, 700.0f);
+		}
+		
 	}
 }
 
@@ -156,6 +166,9 @@ void Snake::CheckSnakeWorldCollision(sf::FloatRect pWorldBounds)
 
 void Snake::HandleCollision(Food& pFood, bool pWorldCollisionActive, sf::FloatRect pWorldBounds)
 {
+	m_worldCollisonActive = pWorldCollisionActive;
+	m_worldBounds = pWorldBounds;
+
 	CheckSnakeSnakeCollision();
 	CheckSnakeFoodCollision(pFood);
 

@@ -24,11 +24,11 @@ void Food::Reinitialise(sf::Vector2f pPos, float pRadious, sf::Color pColor, int
 	m_scoreValue = pScoreValue;
 }
 
-void Food::ReinitialiseRandom()
+void Food::ReinitialiseRandom(float tPosXMin, float tPosXMax, float tPosYMin, float tPosYMax)
 {
 	// Set new, random position
-	float tPosX = GetRandomFloatInRange(10.0f, 700.0f);
-	float tPosY = GetRandomFloatInRange(10.0f, 700.0f);
+	float tPosX = GetRandomFloatInRange(tPosXMin, tPosXMax);
+	float tPosY = GetRandomFloatInRange(tPosYMin, tPosYMax);
 	m_foodShape.setPosition(sf::Vector2f(tPosX, tPosY));
 	
 }
