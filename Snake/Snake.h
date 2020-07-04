@@ -19,7 +19,7 @@ enum EMoveDirection
 class Snake
 {
 public:
-	Snake();
+	Snake(sf::Vector2f pInitialPosition = sf::Vector2f(100.0f, 100.0f), float pSpeed = 20.0f, int pInitialLength = 3);
 	virtual ~Snake();
 
 	void ChangeMoveDirection(EMoveDirection pNewDirection);
@@ -41,12 +41,12 @@ private:
 
 private:
 	bool	m_bIsAlive;
-	bool	m_worldCollisonActive;
+	bool	m_worldCollisionActive;
 	int		m_health;
 	float	m_speed;
 	int		m_foodColected;
 	float	m_BodyElemSpace;
-	int		m_initialSnakeLenght;
+	int		m_initialSnakeLength;
 	sf::Vector2f	m_snakeBodyElemSize;
 	sf::Vector2f	m_position;
 	sf::Color		m_headColor;

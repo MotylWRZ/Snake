@@ -3,26 +3,26 @@
 
 
 
-Snake::Snake()
+Snake::Snake(sf::Vector2f pInitialPosition, float pSpeed, int pInitialLength)
 	:m_health(100)
-	, m_speed(20.0f)
+	, m_speed(pSpeed)
 	, m_foodColected(0)
 	, m_eCurrMoveDirection(E_MOVE_RIGHT)
 	, m_movement(m_speed + m_BodyElemSpace, 0.0f)
 	, m_snakeBodyElemSize(sf::Vector2f(20.0f, 20.0f))
-	, m_position(sf::Vector2f(100.0f, 100.0f))
+	, m_position(sf::Vector2f(pInitialPosition))
 	, m_headColor(sf::Color::Blue)
 	, m_bodyColor(sf::Color::White)
 	, m_bIsAlive(true)
-	, m_worldCollisonActive(false)
+	, m_worldCollisionActive(false)
 	, m_worldBounds(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(0.0f, 0.0f))
 	, m_BodyElemSpace(1.0f)
-	, m_initialSnakeLenght(10)
+	, m_initialSnakeLength(pInitialLength)
 {
 	
 	sf::Vector2f tPos(100.0f, 100.0f);
 	SnakeBodyElem tElem(m_snakeBodyElemSize, m_position, m_bodyColor);
-	for (int i = 0; i < m_initialSnakeLenght; i++)
+	for (int i = 0; i < m_initialSnakeLength; i++)
 	{
 		m_snakeBody.PushFront(tElem);
 		m_snakeBody.GetHeadPtr()->data.SetPosition(tPos);
@@ -149,7 +149,7 @@ void Snake::CheckSnakeFoodCollision(Food& pFood)
 		AddBodyElem(); // Add Body element to the snake
 		m_foodColected += pFood.GetScoreValue(); //Increase the current score
 		
-		if (m_worldCollisonActive)
+		if (m_worldCollisionActive)
 		{
 			//Reinitialise the food at random position using world bounds
 			pFood.ReinitialiseRandom(m_worldBounds.left, m_worldBounds.width, m_worldBounds.top, m_worldBounds.height);
@@ -175,7 +175,7 @@ void Snake::CheckSnakeWorldCollision(sf::FloatRect pWorldBounds)
 
 void Snake::HandleCollision(Food& pFood, bool pWorldCollisionActive, sf::FloatRect pWorldBounds)
 {
-	m_worldCollisonActive = pWorldCollisionActive;
+	m_worldCollisionActive = pWorldCollisionActive;
 	m_worldBounds = pWorldBounds;
 
 	CheckSnakeSnakeCollision();
