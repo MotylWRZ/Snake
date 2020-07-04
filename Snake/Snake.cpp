@@ -8,7 +8,7 @@ Snake::Snake()
 	, m_speed(20.0f)
 	, m_foodColected(0)
 	, m_eCurrMoveDirection(E_MOVE_RIGHT)
-	, m_movement(m_speed, 0.0f)
+	, m_movement(m_speed + m_BodyElemSpace, 0.0f)
 	, m_snakeBodyElemSize(sf::Vector2f(20.0f, 20.0f))
 	, m_position(sf::Vector2f(100.0f, 100.0f))
 	, m_headColor(sf::Color::Blue)
@@ -16,15 +16,17 @@ Snake::Snake()
 	, m_bIsAlive(true)
 	, m_worldCollisonActive(false)
 	, m_worldBounds(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(0.0f, 0.0f))
+	, m_BodyElemSpace(1.0f)
+	, m_initialSnakeLenght(10)
 {
 	
 	sf::Vector2f tPos(100.0f, 100.0f);
 	SnakeBodyElem tElem(m_snakeBodyElemSize, m_position, m_bodyColor);
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < m_initialSnakeLenght; i++)
 	{
 		m_snakeBody.PushFront(tElem);
 		m_snakeBody.GetHeadPtr()->data.SetPosition(tPos);
-		tPos.x += 21.0f;
+		tPos.x += m_snakeBodyElemSize.x + m_BodyElemSpace;
 	}
 	
 }
@@ -42,22 +44,22 @@ void Snake::ChangeMoveDirection(EMoveDirection pNewDirection)
 	{
 	case E_MOVE_UP:
 	{
-		m_movement = sf::Vector2f(0.0f, -m_speed);
+		m_movement = sf::Vector2f(0.0f, -m_speed - m_BodyElemSpace);
 		break;
 	}
 	case E_MOVE_RIGHT:
 	{
-		m_movement = sf::Vector2f(m_speed, 0.0f);
+		m_movement = sf::Vector2f(m_speed + m_BodyElemSpace, 0.0f);
 		break;
 	}
 	case E_MOVE_DOWN:
 	{
-		m_movement = sf::Vector2f(0.0f, m_speed);
+		m_movement = sf::Vector2f(0.0f, m_speed + m_BodyElemSpace);
 		break;
 	}
 	case E_MOVE_LEFT:
 	{
-		m_movement = sf::Vector2f(-m_speed, 0.0f);
+		m_movement = sf::Vector2f(-m_speed - m_BodyElemSpace, 0.0f);
 		break;
 	}
 	}
@@ -191,8 +193,6 @@ void Snake::Update(float pDeltaTime)
 		return;
 	
 	this->Move();
-	/*this->m_snakeBody.GetHeadPtr()->data.rGetShape().setFillColor(m_headColor);
-	this->m_snakeBody.GetHeadPtr()->next->data.rGetShape().setFillColor(m_bodyColor);*/
 }
 
 void Snake::Render(sf::RenderWindow& pWindow)

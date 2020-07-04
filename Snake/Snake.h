@@ -45,6 +45,8 @@ private:
 	int		m_health;
 	float	m_speed;
 	int		m_foodColected;
+	float	m_BodyElemSpace;
+	int		m_initialSnakeLenght;
 	sf::Vector2f	m_snakeBodyElemSize;
 	sf::Vector2f	m_position;
 	sf::Color		m_headColor;

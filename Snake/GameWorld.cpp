@@ -18,7 +18,7 @@ GameWorld::GameWorld(sf::RenderWindow& pParentWindow)
 																				, 0.0f));
 
 	m_playableArea = sf::FloatRect(sf::Vector2f(m_worldBounds.getGlobalBounds().left + m_borderThickness, m_worldBounds.getGlobalBounds().top + m_borderThickness),
-									sf::Vector2f(m_worldBounds.getGlobalBounds().width - m_borderThickness, m_worldBounds.getGlobalBounds().height - m_borderThickness));
+									sf::Vector2f(m_worldBounds.getGlobalBounds().width - m_borderThickness * 2, m_worldBounds.getGlobalBounds().height - m_borderThickness * 2));
 }
 
 
