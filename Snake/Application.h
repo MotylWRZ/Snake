@@ -27,6 +27,6 @@ private:
 
 	Snake m_snake;
 	Food m_food;
-	
+	UITextElement* m_score;
 };
 

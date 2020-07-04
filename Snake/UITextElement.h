@@ -6,6 +6,7 @@ class UITextElement
 public:
 	UITextElement();
 	UITextElement(std::string pText, int pFontSize, sf::Color pTextColor, sf::Vector2f pPosition);
+	UITextElement(const UITextElement& pOther); //Copy Constructor
 	~UITextElement();
 
 	void Render(sf::RenderWindow& pWindow);

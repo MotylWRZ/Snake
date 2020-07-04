@@ -15,13 +15,14 @@ Application::Application(int pWindowWidth, int pWindowHeight, std::string pAppNa
 {
 	
 	m_food = Food(sf::Vector2f(100, 100), 20.0f, sf::Color::Green, 10);
-	
+	m_score = new UITextElement("ScoreTest", 30, sf::Color::White, sf::Vector2f(100.0f, 100.0f));
 
 }
 
 
 Application::~Application()
 {
+	delete m_score;
 }
 
 
@@ -65,7 +66,7 @@ void Application::Render()
 	m_window.clear();
 	m_food.Render(m_window);
 	m_snake.Render(m_window);
-	
+	m_score->Render(m_window);
 	m_window.display();
 }
 
