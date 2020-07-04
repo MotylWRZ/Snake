@@ -150,10 +150,17 @@ void Snake::CheckSnakeFoodCollision(Food& pFood)
 	}
 }
 
-void Snake::HandleCollision(Food& pFood)
+void Snake::CheckSnakeWorldCollision(sf::FloatRect pWorldBounds)
+{
+}
+
+void Snake::HandleCollision(Food& pFood, bool pWorldCollisionActive, sf::FloatRect pWorldBounds)
 {
 	CheckSnakeSnakeCollision();
 	CheckSnakeFoodCollision(pFood);
+
+	if(pWorldCollisionActive)
+	CheckSnakeWorldCollision(pWorldBounds);
 }
  
 

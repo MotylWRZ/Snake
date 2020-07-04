@@ -26,11 +26,12 @@ public:
 	void HandleInput(sf::Keyboard::Key pKey, bool pPressed);
 	void Update(float pDeltaTime);
 	void Render(sf::RenderWindow& pWindow);
-	void HandleCollision(Food& pFood);
+	void HandleCollision(Food& pFood, bool pWorldCollisionActive = false, sf::FloatRect pWorldBounds = sf::FloatRect(sf::Vector2f(0.0f,0.0f), sf::Vector2f(0.0f, 0.0f)));
 
 private:
 	void CheckSnakeSnakeCollision();
 	void CheckSnakeFoodCollision(Food& pFood);
+	void CheckSnakeWorldCollision(sf::FloatRect pWorldBounds);
 	void AddBodyElem();
 	void Move();
 	

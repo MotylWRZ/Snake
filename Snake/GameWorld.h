@@ -12,6 +12,7 @@ public:
 
 	void HandleInput(sf::Keyboard::Key pKey, bool pPressed);
 	void Update(sf::Time pDeltaTime);
+	void UpdateScore();
 	void Render(sf::RenderWindow& pWindow);
 
 private:
