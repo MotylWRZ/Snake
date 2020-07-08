@@ -129,7 +129,6 @@ void Snake::CheckSnakeSnakeCollision()
 	auto tCurrElem = m_snakeBody.GetHeadPtr()->next;
 	while (tCurrElem->next != nullptr)
 	{
-		
 		if (tCurrElem->data.GetPosition() == m_snakeBody.GetHeadPtr()->data.GetPosition())
 		{
 			this->m_bIsAlive = false;
