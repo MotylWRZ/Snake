@@ -13,6 +13,10 @@ MenuScreen::MenuScreen(Application* pAppPtr)
 
 MenuScreen::~MenuScreen()
 {
+	for (auto tElem : m_menuElems)
+	{
+		delete tElem;
+	}
 }
 
 void MenuScreen::Initialise()
