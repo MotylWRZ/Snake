@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include "GameWorld.h"
+#include "MenuScreen.h"
 class Application
 {
 
@@ -23,6 +24,8 @@ public:
 	void Render();
 	void Run();
 
+	inline const sf::RenderWindow& GetWindow()  { return m_window; } ;
+
 private:
 	sf::Event m_event;
 	sf::RenderWindow m_window;
@@ -31,6 +34,6 @@ private:
 	sf::Time m_desiredUpdateTime;
 	
 	GameWorld* m_gameWorld;
-
+	MenuScreen* m_menuScreen;
 };
 

@@ -1,30 +1,7 @@
-﻿  Application.cpp
-  GameWorld.cpp
-d:\game development\myprojectsc++\games\snake_v3\snake\gameworld.cpp(10): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+﻿  MenuScreen.cpp
+d:\game development\myprojectsc++\games\snake_v3\snake\menuscreen.cpp(9): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
-          [
-              T=unsigned int
-          ]
-          and
           [
               T=float
           ]
-d:\game development\myprojectsc++\games\snake_v3\snake\gameworld.cpp(9): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-d:\game development\myprojectsc++\games\snake_v3\snake\gameworld.cpp(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\game development\myprojectsc++\games\snake_v3\snake\gameworld.cpp(15): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-  MenuElement.cpp
-  MenuScreen.cpp
-  Generating Code...
   Snake.vcxproj -> D:\Game Development\MyProjectsC++\Games\Snake_V3\Debug\Snake.exe

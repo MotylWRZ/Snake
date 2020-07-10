@@ -12,6 +12,7 @@ Application::Application(int pWindowWidth, int pWindowHeight, std::string pAppNa
 	, m_screenWidth(pWindowWidth)
 	, m_screenHeight(pWindowHeight)
 	, m_desiredUpdateTime(sf::seconds(1.0f / 10.0f))
+	, m_appState(AppState::MAIN_MENU)
 {
 }
 
@@ -23,6 +24,8 @@ Application::~Application()
 void Application::Initialise()
 {
 	m_gameWorld = new GameWorld(m_window);
+	m_menuScreen = new MenuScreen(this);
+	m_menuScreen->Initialise();
 }
 
 
@@ -51,19 +54,60 @@ void Application::HandleEvent(const sf::Event& pEvent)
 
 void Application::HandleInput(sf::Keyboard::Key pKey, bool pPressed)
 {
-	m_gameWorld->HandleInput(pKey, pPressed);
+	switch (m_appState)
+	{
+	case AppState::MAIN_MENU:
+		{
+		m_menuScreen->HandleInput(pKey, pPressed);
+			break;
+		}
+	case AppState::IN_GAME:
+	{
+		m_gameWorld->HandleInput(pKey, pPressed);
+		break;
+	}
+	}
+	
 }
 
 
 void Application::Update(sf::Time pDeltaTime)
 {
-	m_gameWorld->Update(pDeltaTime);
+	switch (m_appState)
+	{
+	case AppState::MAIN_MENU:
+	{
+		break;
+	}
+	case AppState::IN_GAME:
+	{
+		m_gameWorld->Update(pDeltaTime);
+		break;
+	}
+		
+	}
+	
 }
 
 void Application::Render()
 {
 	m_window.clear();
-	m_gameWorld->Render(m_window);
+
+	switch (m_appState)
+	{
+	case AppState::MAIN_MENU:
+	{
+		m_menuScreen->Render(m_window);
+		break;
+	}
+	case AppState::IN_GAME:
+	{
+		m_gameWorld->Render(m_window);
+		break;
+	}
+
+	}
+	
 	m_window.display();
 }
 
