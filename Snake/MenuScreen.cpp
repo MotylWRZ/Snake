@@ -7,6 +7,7 @@ MenuScreen::MenuScreen(Application* pAppPtr)
 	,m_itemSize(70)
 	,m_itemSpacing(m_itemSize)
 	,m_menuOffset(-m_itemSize, -200.0f)
+	,m_titleSize(120)
 {
 }
 
@@ -21,14 +22,18 @@ MenuScreen::~MenuScreen()
 
 void MenuScreen::Initialise()
 {
+	
+
 	sf::Vector2f tPos;
 	tPos.x = static_cast<float>(m_applicationPtr->GetWindow().getSize().x / 2) + m_menuOffset.x;
 	tPos.y = static_cast<float>(m_applicationPtr->GetWindow().getSize().y / 2) + m_menuOffset.y;
 
-
+	m_gameTitle = new UITextElement("SNAKE", m_titleSize, sf::Color::White, sf::Vector2f(tPos.x - m_itemSize, tPos.y));
+	tPos.y += m_gameTitle->GetFontSize() + m_itemSpacing;
 	for (int i = 0; i < 2; i++)
 	{
-		MenuElement* tElem = new MenuElement("TEST", tPos, m_itemSize);
+		
+		MenuElement* tElem = new MenuElement("Start The Gameaaaaaaaaaaaaaaaa", tPos, m_itemSize);
 		m_menuElems.push_back(tElem);
 
 		tPos.y += m_itemSpacing;
@@ -57,6 +62,7 @@ void MenuScreen::HandleInput(sf::Keyboard::Key pKey, bool pPressed)
 
 void MenuScreen::Render(sf::RenderWindow & pWindow)
 {
+	m_gameTitle->Render(pWindow);
 	for (auto tElem : m_menuElems)
 	{
 		tElem->Render(pWindow);

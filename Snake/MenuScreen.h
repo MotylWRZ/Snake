@@ -16,6 +16,8 @@ public:
 	void Render(sf::RenderWindow& pWindow);
 
 private:
+	UITextElement* m_gameTitle;
+	int m_titleSize;
 	std::vector<MenuElement*> m_menuElems;
 	int m_currentSelection;
 	Application* m_applicationPtr;
