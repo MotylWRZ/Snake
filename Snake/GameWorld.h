@@ -4,16 +4,22 @@
 #include "Snake.h"
 #include "Food.h"
 #include "UITextElement.h"
+
+class Application;
+
 class GameWorld
 {
 public:
-	GameWorld(sf::RenderWindow& pParentWindow);
+	GameWorld(Application* pAppPtr);
 	~GameWorld();
 
+	void Initialise();
 	void HandleInput(sf::Keyboard::Key pKey, bool pPressed);
 	void Update(sf::Time pDeltaTime);
 	void UpdateScore();
 	void Render(sf::RenderWindow& pWindow);
+	void MenuReturn();
+	void GameWorldReset();
 
 private:
 	sf::RectangleShape m_worldBounds;
@@ -25,5 +31,7 @@ private:
 	Snake m_snake;
 	Food m_food;
 	UITextElement* m_score;
+
+	Application* m_AppPtr;
 };
 

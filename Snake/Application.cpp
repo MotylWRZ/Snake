@@ -23,7 +23,7 @@ Application::~Application()
 
 void Application::Initialise()
 {
-	m_gameWorld = new GameWorld(m_window);
+	m_gameWorld = new GameWorld(this);
 	m_menuScreen = new MenuScreen(this);
 	m_menuScreen->Initialise();
 }
@@ -145,3 +145,5 @@ void Application::Run()
 		Render();
 	}
 }
+
+

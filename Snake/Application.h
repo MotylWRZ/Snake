@@ -24,6 +24,7 @@ public:
 	void Update(sf::Time pDeltaTime);
 	void Render();
 	void Run();
+	
 
 	inline const sf::RenderWindow& GetWindow()  { return m_window; } ;
 
