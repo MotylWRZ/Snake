@@ -15,6 +15,7 @@ public:
 	inline sf::Color GetColorNotActive() { return m_colorNotActive; };
 	inline sf::Vector2f GetPosition() { return m_position; };
 	
+	inline void SetText(std::string pText) { m_elemText = pText; m_textElem->SetString(m_elemText); };
 
 
 

@@ -1,2 +1,7 @@
-﻿  UITextElement.cpp
+﻿  MenuScreen.cpp
+d:\game development\myprojectsc++\games\snake_v3\snake\menuscreen.cpp(9): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
   Snake.vcxproj -> D:\Game Development\MyProjectsC++\Games\Snake_V3\Debug\Snake.exe
