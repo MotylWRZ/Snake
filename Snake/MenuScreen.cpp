@@ -8,12 +8,14 @@ MenuScreen::MenuScreen(Application* pAppPtr)
 	,m_itemSpacing(m_itemSize)
 	,m_menuOffset(-m_itemSize, -200.0f)
 	,m_titleSize(120)
+	,m_currentSelection(0)
 {
 }
 
 
 MenuScreen::~MenuScreen()
 {
+	// Delete all menu elements allocated dynamically in memory
 	for (auto tElem : m_menuElems)
 	{
 		delete tElem;
@@ -22,14 +24,15 @@ MenuScreen::~MenuScreen()
 
 void MenuScreen::Initialise()
 {
-	
-
 	sf::Vector2f tPos;
 	tPos.x = static_cast<float>(m_applicationPtr->GetWindow().getSize().x / 2);
 	tPos.y = static_cast<float>(m_applicationPtr->GetWindow().getSize().y / 2) + m_menuOffset.y;
 
-	m_gameTitle = new UITextElement("SNAKE", m_titleSize, sf::Color::White, sf::Vector2f(tPos.x, tPos.y));
+	// Create and position the Game Title
+	m_gameTitle = new UITextElement("SssNAKE", m_titleSize, sf::Color::White, sf::Vector2f(tPos.x, tPos.y));
 	tPos.y += m_gameTitle->GetFontSize();
+
+	// Create the menu elements
 	for (int i = 0; i < 2; i++)
 	{
 		std::string tString= "Empty";
@@ -89,20 +92,26 @@ void MenuScreen::Render(sf::RenderWindow & pWindow)
 void MenuScreen::OnMoveUp()
 {
 	m_currentSelection = (--m_currentSelection + m_menuElems.size()) % m_menuElems.size();
+
+	//Reset all menu elements and set them as not active
 	for (auto& tElem : m_menuElems)
 	{
-		tElem->SetActive(false);
+		tElem->SetActive(false); 
 	}
+	//Set currently seletced element as active
 	m_menuElems[m_currentSelection]->SetActive(true);
 }
 
 void MenuScreen::OnMoveDown()
 {
 	m_currentSelection = (++m_currentSelection + m_menuElems.size()) % m_menuElems.size();
+
+	//Reset all menu elements and set them as not active
 	for (auto& tElem : m_menuElems)
 	{
 		tElem->SetActive(false);
 	}
+	//Set currently seletced element as active
 	m_menuElems[m_currentSelection]->SetActive(true);
 }
 
