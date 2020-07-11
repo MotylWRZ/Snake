@@ -105,6 +105,9 @@ void Application::Render()
 		m_gameWorld->Render(m_window);
 		break;
 	}
+	case AppState::EXIT:
+		m_window.close();
+		break;
 
 	}
 	

@@ -7,6 +7,6 @@ int main()
 	Game.Initialise();
 	Game.Run();
 	
-	system("PAUSE");
+	
 	return 0;
 }

@@ -117,6 +117,7 @@ void MenuScreen::OnSelect()
 	}
 	case 1:
 	{
+		m_applicationPtr->m_appState = Application::AppState::EXIT;
 		break;
 	}
 	}

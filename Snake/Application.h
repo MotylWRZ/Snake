@@ -12,6 +12,7 @@ public:
 	{
 		MAIN_MENU,
 		IN_GAME,
+		EXIT
 	}m_appState;
 
 	Application(int pWindowWidth, int pWindowHeight, std::string pAppName);
