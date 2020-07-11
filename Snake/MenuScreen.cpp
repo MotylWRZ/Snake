@@ -29,7 +29,7 @@ void MenuScreen::Initialise()
 	tPos.y = static_cast<float>(m_applicationPtr->GetWindow().getSize().y / 2) + m_menuOffset.y;
 
 	m_gameTitle = new UITextElement("SNAKE", m_titleSize, sf::Color::White, sf::Vector2f(tPos.x, tPos.y));
-	tPos.y += m_gameTitle->GetFontSize() + m_itemSpacing;
+	tPos.y += m_gameTitle->GetFontSize();
 	for (int i = 0; i < 2; i++)
 	{
 		std::string tString= "Empty";
@@ -58,15 +58,20 @@ void MenuScreen::HandleInput(sf::Keyboard::Key pKey, bool pPressed)
 	{
 	case sf::Keyboard::Up:
 	{
+			if(pPressed)
+			OnMoveUp();
 		break;
 	}
 	case sf::Keyboard::Down:
 	{
+			if (pPressed)
+			OnMoveDown();
 		break;
+		
 	}
 	case sf::Keyboard::Enter:
 	{
-		m_applicationPtr->m_appState = Application::AppState::IN_GAME;
+			OnSelect();
 		break;
 	}
 	}
@@ -78,5 +83,41 @@ void MenuScreen::Render(sf::RenderWindow & pWindow)
 	for (auto tElem : m_menuElems)
 	{
 		tElem->Render(pWindow);
+	}
+}
+
+void MenuScreen::OnMoveUp()
+{
+	m_currentSelection = (--m_currentSelection + m_menuElems.size()) % m_menuElems.size();
+	for (auto& tElem : m_menuElems)
+	{
+		tElem->SetActive(false);
+	}
+	m_menuElems[m_currentSelection]->SetActive(true);
+}
+
+void MenuScreen::OnMoveDown()
+{
+	m_currentSelection = (++m_currentSelection + m_menuElems.size()) % m_menuElems.size();
+	for (auto& tElem : m_menuElems)
+	{
+		tElem->SetActive(false);
+	}
+	m_menuElems[m_currentSelection]->SetActive(true);
+}
+
+void MenuScreen::OnSelect()
+{
+	switch (m_currentSelection)
+	{
+	case 0:
+	{
+		m_applicationPtr->m_appState = Application::AppState::IN_GAME;
+		break;
+	}
+	case 1:
+	{
+		break;
+	}
 	}
 }

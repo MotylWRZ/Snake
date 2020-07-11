@@ -14,6 +14,9 @@ public:
 	void Initialise();
 	void HandleInput(sf::Keyboard::Key pKey, bool pPressed);
 	void Render(sf::RenderWindow& pWindow);
+	void OnMoveUp();
+	void OnMoveDown();
+	void OnSelect();
 
 private:
 	UITextElement* m_gameTitle;
