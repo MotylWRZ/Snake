@@ -34,7 +34,7 @@ void GameWorld::Initialise()
 	m_score = new UITextElement("Score", 30, sf::Color::White, sf::Vector2f(m_worldBounds.getSize().x - 200.0f
 		, 17.0f));
 
-	std::string tString = "You Scored " + std::to_string(m_snake.GetFoodCollected()) + "\n Press Esc to continue";
+	std::string tString = "You Scored " + std::to_string(m_snake.GetFoodCollected()) + " points \n Press Esc to continue";
 	m_endGameMessage = new UITextElement(tString, 100, sf::Color::Blue, sf::Vector2f(m_worldBounds.getSize().x / 2.0f,
 																					m_worldBounds.getSize().y / 2.0f));
 
@@ -62,12 +62,8 @@ void GameWorld::HandleInput(sf::Keyboard::Key pKey, bool pPressed)
 void GameWorld::Update(sf::Time pDeltaTime)
 {
 	if (!m_snake.IsAlive())
-	{
-		m_endGameMessage->SetString("You Scored " + std::to_string(m_snake.GetFoodCollected()) + "\n Press Esc to continue");
-		return;
-	}
-		
-
+		m_endGameMessage->SetString("You Scored " + std::to_string(m_snake.GetFoodCollected()) + " points \n Press Esc to continue");
+	
 	m_snake.Update(pDeltaTime.asSeconds());
 	m_snake.HandleCollision(m_food, true, m_playableArea);
 	this->UpdateScore();
@@ -83,13 +79,18 @@ void GameWorld::UpdateScore()
 
 void GameWorld::Render(sf::RenderWindow& pWindow)
 {
+	
+		
+	
 	pWindow.draw(m_worldBounds);
 	m_food.Render(pWindow);
 	m_snake.Render(pWindow);
 	m_score->Render(pWindow);
 
-	if(!m_snake.IsAlive())
-	m_endGameMessage->Render(pWindow);
+	if (!m_snake.IsAlive())
+		m_endGameMessage->Render(pWindow);
+	
+	
 }
 
 void GameWorld::MenuReturn()
