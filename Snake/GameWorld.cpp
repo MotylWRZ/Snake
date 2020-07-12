@@ -106,8 +106,13 @@ void GameWorld::GameWorldReset()
 	{
 		delete m_score;
 		m_score = nullptr;
-
+	}
+	if (m_endGameMessage != nullptr)
+	{
+		delete m_endGameMessage;
+		m_endGameMessage = nullptr;
+	}
 		m_snake = Snake();
 		Initialise();
-	}
+	
 }
