@@ -84,9 +84,11 @@ void Application::Update(sf::Time pDeltaTime)
 		m_gameWorld->Update(pDeltaTime);
 		break;
 	}
-		
+	case AppState::EXIT:
+		m_window.close();
+		break;
+
 	}
-	
 }
 
 void Application::Render()
@@ -105,13 +107,9 @@ void Application::Render()
 		m_gameWorld->Render(m_window);
 		break;
 	}
-	case AppState::EXIT:
-		m_window.close();
-		break;
-
 	}
-	
 	m_window.display();
+	
 }
 
 void Application::Run()
