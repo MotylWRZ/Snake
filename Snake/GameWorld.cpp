@@ -102,6 +102,8 @@ void GameWorld::MenuReturn()
 
 void GameWorld::GameWorldReset()
 {
+	// Check whether the m_score and m_endMessage are nullptr. If not, free the allocated memory before calling
+	// the Initialise() function in which new elements will be created
 	if (m_score != nullptr)
 	{
 		delete m_score;
