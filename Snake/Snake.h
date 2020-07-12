@@ -29,7 +29,8 @@ public:
 	void HandleCollision(Food& pFood, bool pWorldCollisionActive = false, 
 						sf::FloatRect pWorldBounds = sf::FloatRect(sf::Vector2f(0.0f,0.0f), sf::Vector2f(0.0f, 0.0f)));
 
-	inline int GetFoodCollected() { return m_foodColected; };
+	inline const int& GetFoodCollected() { return m_foodColected; };
+	inline const bool& IsAlive() { return m_bIsAlive; };
 
 private:
 	void CheckSnakeSnakeCollision();

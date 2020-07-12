@@ -1,6 +1,7 @@
 #include "GameWorld.h"
 #include "Application.h"
 
+#include <string>
 
 
 GameWorld::GameWorld(Application* pAppPtr)
@@ -14,6 +15,7 @@ GameWorld::GameWorld(Application* pAppPtr)
 GameWorld::~GameWorld()
 {
 	delete m_score;
+	delete m_endGameMessage;
 }
 
 void GameWorld::Initialise()
@@ -27,10 +29,15 @@ void GameWorld::Initialise()
 	m_worldBounds.setOrigin(m_worldBounds.getSize().x / 2, m_worldBounds.getSize().y / 2);
 	m_worldBounds.setPosition(m_AppPtr->GetWindow().getSize().x / 2, m_AppPtr->GetWindow().getSize().y / 2);
 
-	// Initialise food and score
+	// Initialise food, score and endMessage
 	m_food = Food(sf::Vector2f(100, 100), 20.0f, sf::Color::Green, 10);
 	m_score = new UITextElement("Score", 30, sf::Color::White, sf::Vector2f(m_worldBounds.getSize().x - 200.0f
-		, 10.0f));
+		, 17.0f));
+
+	std::string tString = "You Scored " + std::to_string(m_snake.GetFoodCollected()) + "\n Press Esc to continue";
+	m_endGameMessage = new UITextElement(tString, 100, sf::Color::Blue, sf::Vector2f(m_worldBounds.getSize().x / 2.0f,
+																					m_worldBounds.getSize().y / 2.0f));
+
 	// Set Playable Arena bounds
 	m_playableArea = sf::FloatRect(sf::Vector2f(m_worldBounds.getGlobalBounds().left + m_borderThickness, m_worldBounds.getGlobalBounds().top + m_borderThickness),
 		sf::Vector2f(m_worldBounds.getGlobalBounds().width - m_borderThickness * 2, m_worldBounds.getGlobalBounds().height - m_borderThickness * 2));
@@ -54,9 +61,19 @@ void GameWorld::HandleInput(sf::Keyboard::Key pKey, bool pPressed)
 
 void GameWorld::Update(sf::Time pDeltaTime)
 {
+	if (!m_snake.IsAlive())
+	{
+		m_endGameMessage->SetString("You Scored " + std::to_string(m_snake.GetFoodCollected()) + "\n Press Esc to continue");
+		return;
+	}
+		
+
 	m_snake.Update(pDeltaTime.asSeconds());
 	m_snake.HandleCollision(m_food, true, m_playableArea);
 	this->UpdateScore();
+
+	
+
 }
 
 void GameWorld::UpdateScore()
@@ -70,6 +87,9 @@ void GameWorld::Render(sf::RenderWindow& pWindow)
 	m_food.Render(pWindow);
 	m_snake.Render(pWindow);
 	m_score->Render(pWindow);
+
+	if(!m_snake.IsAlive())
+	m_endGameMessage->Render(pWindow);
 }
 
 void GameWorld::MenuReturn()

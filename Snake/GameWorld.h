@@ -31,6 +31,7 @@ private:
 	Snake m_snake;
 	Food m_food;
 	UITextElement* m_score;
+	UITextElement* m_endGameMessage;
 
 	Application* m_AppPtr;
 };

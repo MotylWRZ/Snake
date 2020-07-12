@@ -24,8 +24,8 @@ UITextElement::UITextElement(std::string pText, int pFontSize, sf::Color pTextCo
 	m_text.setFont(m_font);
 
 
-	m_text.setOrigin((m_text.getLocalBounds().left + m_text.getLocalBounds().width) / 2.0f,
-		(m_text.getLocalBounds().top + m_text.getLocalBounds().height) / 2.0f);
+	m_text.setOrigin(m_text.getLocalBounds().left + m_text.getLocalBounds().width / 2.0f,
+		m_text.getLocalBounds().top + m_text.getLocalBounds().height / 2.0f);
 	m_text.setPosition(m_position);
 }
 
