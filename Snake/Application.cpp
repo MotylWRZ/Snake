@@ -69,7 +69,6 @@ void Application::HandleInput(sf::Keyboard::Key pKey, bool pPressed)
 		break;
 	}
 	}
-	
 }
 
 
@@ -89,7 +88,6 @@ void Application::Update(sf::Time pDeltaTime)
 	case AppState::EXIT:
 		m_window.close();
 		break;
-
 	}
 }
 
@@ -111,7 +109,6 @@ void Application::Render()
 	}
 	}
 	m_window.display();
-	
 }
 
 void Application::Run()

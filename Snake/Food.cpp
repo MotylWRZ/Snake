@@ -30,7 +30,6 @@ void Food::ReinitialiseRandom(float tPosXMin, float tPosXMax, float tPosYMin, fl
 	float tPosX = GetRandomFloatInRange(tPosXMin, tPosXMax);
 	float tPosY = GetRandomFloatInRange(tPosYMin, tPosYMax);
 	m_foodShape.setPosition(sf::Vector2f(tPosX, tPosY));
-	
 }
 
 float Food::GetRandomFloatInRange(float pRangeMin, float pRangeMax)

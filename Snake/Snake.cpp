@@ -19,7 +19,6 @@ Snake::Snake(sf::Vector2f pInitialPosition, float pSpeed, int pInitialLength)
 	, m_BodyElemSpace(1.0f)
 	, m_initialSnakeLength(pInitialLength)
 {
-	
 	sf::Vector2f tPos(100.0f, 100.0f);
 	SnakeBodyElem tElem(m_snakeBodyElemSize, m_position, m_bodyColor);
 	for (int i = 0; i < m_initialSnakeLength; i++)
@@ -28,7 +27,6 @@ Snake::Snake(sf::Vector2f pInitialPosition, float pSpeed, int pInitialLength)
 		m_snakeBody.GetHeadPtr()->data.SetPosition(tPos);
 		tPos.x += m_snakeBodyElemSize.x + m_BodyElemSpace;
 	}
-	
 }
 
 
@@ -38,7 +36,6 @@ Snake::~Snake()
 
 void Snake::ChangeMoveDirection(EMoveDirection pNewDirection)
 {
-
 	m_eCurrMoveDirection = pNewDirection;
 	switch (m_eCurrMoveDirection)
 	{
@@ -63,7 +60,6 @@ void Snake::ChangeMoveDirection(EMoveDirection pNewDirection)
 		break;
 	}
 	}
-
 }
 
 void Snake::HandleInput(sf::Keyboard::Key pKey, bool pPressed)
@@ -72,8 +68,6 @@ void Snake::HandleInput(sf::Keyboard::Key pKey, bool pPressed)
 		return;
 
 	int tCurrentDirection = int(m_eCurrMoveDirection);
-
-	//bla++;
 
 	switch (pKey)
 	{
@@ -113,7 +107,6 @@ void Snake::Move()
 		// Get the next node (body element) and set the color of it to the body color
 		m_snakeBody.GetHeadPtr()->next->data.rGetShape().setFillColor(m_bodyColor);
 	}
-	
 }
 
 void Snake::AddBodyElem()
