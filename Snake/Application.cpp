@@ -19,6 +19,8 @@ Application::Application(int pWindowWidth, int pWindowHeight, std::string pAppNa
 
 Application::~Application()
 {
+	delete m_gameWorld;
+	delete m_menuScreen;
 }
 
 void Application::Initialise()
